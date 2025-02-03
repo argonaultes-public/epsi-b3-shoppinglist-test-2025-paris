@@ -17,3 +17,15 @@ class Store(models.Model):
             return len(self.store_name)
         else:
             return 0
+
+class ShopList(models.Model):
+    shoplist_name = models.CharField(max_length=20)
+    items = models.ManyToManyField(Item, through="ItemShopList", through_fields=("shop_list", "item"))
+
+
+
+class ItemShopList(models.Model):
+    item = models.ForeignKey(Item)
+    shop_list = models.ForeignKey(ShopList)
+    quantity = models.IntegerField()
+    already_bought = models.BooleanField()
