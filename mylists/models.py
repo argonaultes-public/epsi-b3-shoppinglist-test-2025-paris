@@ -8,6 +8,10 @@ class Item(models.Model):
     store = models.ForeignKey("Store", on_delete=models.CASCADE)
 
 
+
 class Store(models.Model):
     store_name = models.CharField(max_length=20)
+
+    def length_name(self):
+        return len(self.store_name)
 
