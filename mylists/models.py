@@ -13,5 +13,7 @@ class Store(models.Model):
     store_name = models.CharField(max_length=20)
 
     def length_name(self):
-        return len(self.store_name)
-
+        if len(self.store_name) > 10:
+            return len(self.store_name)
+        else:
+            return 0
