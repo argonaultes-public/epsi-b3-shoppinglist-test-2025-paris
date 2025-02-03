@@ -18,6 +18,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from mylists import views
+
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path('', views.index, name='index_shop'),
+    path('rendertpl', views.index_render, name='index_shop_render')
 ]
