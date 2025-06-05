@@ -25,7 +25,7 @@ class ShopList(models.Model):
 
 
 class ItemShopList(models.Model):
-    item = models.ForeignKey(Item)
-    shop_list = models.ForeignKey(ShopList)
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    shop_list = models.ForeignKey(ShopList, on_delete=models.CASCADE)
     quantity = models.IntegerField()
     already_bought = models.BooleanField()
