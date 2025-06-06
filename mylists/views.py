@@ -9,7 +9,9 @@ def index(req):
 
 def index_render(req):
 
-    mylists = ShopList.objects.all()
+    shop_filter = req.GET.get('filter', '')
+    mylists = ShopList.objects.filter(shoplist_name__startswith=shop_filter)
+
     return render(
         request=req,
         template_name='index.html', context={'mylists': mylists}

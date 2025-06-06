@@ -22,6 +22,9 @@ class ShopList(models.Model):
     shoplist_name = models.CharField(max_length=20)
     items = models.ManyToManyField(Item, through="ItemShopList", through_fields=("shop_list", "item"))
 
+    def __str__(self):
+        return self.shoplist_name
+
 
 
 class ItemShopList(models.Model):
